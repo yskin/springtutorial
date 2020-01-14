@@ -13,7 +13,9 @@ public class AnnotationDemoApp {
 		System.out.println(theCoach.getDailyWorkout());
 		System.out.println(theCoach.getDailyFortune());
 		// close the context
+		System.out.println("context.close() will start");
 		context.close();
+		System.out.println("context.close() end");
 	}
 
 }

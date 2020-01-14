@@ -5,21 +5,26 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Scope;
+
+@Configuration
+@Scope("singleton")
+@PropertySource("classpath:logger.properties")
 public class MyLoggerConfig {
 
+	@Value("${logger.rootLoggerLevel:FINE}")
 	private String rootLoggerLevel;
+
+	@Value("${logger.printedLoggerLevel:FINE}")
 	private String printedLoggerLevel;
 
-	public void setRootLoggerLevel(String rootLoggerLevel) {
-		this.rootLoggerLevel = rootLoggerLevel;
-	}
-
-	public void setPrintedLoggerLevel(String printedLoggerLevel) {
-		this.printedLoggerLevel = printedLoggerLevel;
-	}
-
+	@PostConstruct
 	public void initLogger() {
 		// parse levels
 		Level rootLevel = Level.parse(rootLoggerLevel);
