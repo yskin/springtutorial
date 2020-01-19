@@ -1,0 +1,31 @@
+<!-- BaseFile: hibernate-release-5.4.10.Final\project\hibernate-core\src\test\resources\org\hibernate\jpa\test\hibernate.cfg.xml 
+	Reference Section.20-179 https://www.udemy.com/course/spring-hibernate-tutorial/learn/lecture/5116986 -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.username">hbstudent</property>
+		<property name="hibernate.connection.password">hbstudent</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hb-03-one-to-many?userSSL=false&amp;serverTimezone=UTC</property>
+
+		<property name="hibernate.connection.pool_size">1</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+
+		<!-- <property name="hibernate.cache.use_query_cache">true</property> <property 
+			name="hibernate.cache.region_prefix">hibernate.test</property> <property 
+			name="hibernate.jdbc.use_streams_for_binary">true</property> <property name="hibernate.jdbc.batch_size">0</property> 
+			<property name="hibernate.max_fetch_depth">3</property> <property name="hibernate.hbm2ddl.auto">create-drop</property> 
+			<property name="hibernate.generate_statistics">true</property> <property 
+			name="hibernate.cache.region.factory_class">org.hibernate.testing.cache.CachingRegionFactory</property> 
+			<mapping class="org.hibernate.jpa.test.Item"/> <mapping class="org.hibernate.jpa.test.Cat"/> 
+			<mapping class="org.hibernate.jpa.test.Kitten"/> <mapping class="org.hibernate.jpa.test.Distributor"/> 
+			<class-cache class="org.hibernate.jpa.test.Item" usage="read-write"/> <collection-cache 
+			collection="org.hibernate.jpa.test.Item.distributors" usage="read-write" 
+			region="RegionName"/> -->
+	</session-factory>
+</hibernate-configuration>
