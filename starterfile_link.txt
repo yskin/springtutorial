@@ -1,3 +1,10 @@
 
 - Downloading the Source Code and PDF Files
 https://github.com/darbyluv2code/spring-and-hibernate-for-beginners/archive/master.zip
+
+
+- spring framework release
+https://repo.spring.io/release/org/springframework/spring/5.2.3.RELEASE/
+
+- hibernate release
+http://hibernate.org/orm/downloads/
