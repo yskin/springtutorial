@@ -23,4 +23,10 @@
 
 https://docs.google.com/spreadsheets/d/12Xu48MgBXYhd09axB3xtcSsS02LJZhddCxadMCTcTJsß
 
-#
+# Note: IntelliJ
+## コンソール出力が文字化けする
+以下で是正できる  
+https://teratail.com/questions/208868  
+C:\Users\20066338\.IntelliJIdea2019.3\config  
+idea64.exe.vmoptions  
+上記ファイルの末尾に次を追記 -Dfile.encoding=UTF-8  
