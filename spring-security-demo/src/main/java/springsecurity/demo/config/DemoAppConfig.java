@@ -49,10 +49,23 @@ public class DemoAppConfig {
             throw new RuntimeException(e);
         }
         // log the connection props
-        logger.info("jdbc.url=" + env.getProperty("jdbc.driver"));
+        logger.info("jdbc.url=" + env.getProperty("jdbc.url"));
         logger.info("jdbc.user=" + env.getProperty("jdbc.user"));
-        // TODO
+        // set connection database props
+        securityDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
+        securityDataSource.setUser(env.getProperty("jdbc.user"));
+        securityDataSource.setPassword(env.getProperty("jdbc.password"));
+        // set connection pool props
+        securityDataSource.setInitialPoolSize(getIntProperty("connection.pool.initialPoolSize"));
+        securityDataSource.setMinPoolSize(getIntProperty("connection.pool.minPoolSize"));
+        securityDataSource.setMaxPoolSize(getIntProperty("connection.pool.maxPoolSize"));
+        securityDataSource.setMaxIdleTime(getIntProperty("connection.pool.maxIdleTime"));
+
         return securityDataSource;
+    }
+
+    private int getIntProperty(String propName) {
+        return Integer.parseInt(env.getProperty(propName));
     }
 
 }
