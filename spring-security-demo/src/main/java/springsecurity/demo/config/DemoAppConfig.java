@@ -60,7 +60,6 @@ public class DemoAppConfig {
         securityDataSource.setMinPoolSize(getIntProperty("connection.pool.minPoolSize"));
         securityDataSource.setMaxPoolSize(getIntProperty("connection.pool.maxPoolSize"));
         securityDataSource.setMaxIdleTime(getIntProperty("connection.pool.maxIdleTime"));
-
         return securityDataSource;
     }
 
