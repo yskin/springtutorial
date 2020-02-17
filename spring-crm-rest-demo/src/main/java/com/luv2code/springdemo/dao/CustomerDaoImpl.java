@@ -15,6 +15,7 @@ public class CustomerDaoImpl implements CustomerDAO {
 
     private final SessionFactory sessionFactory;
 
+    @Autowired
     public CustomerDaoImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }

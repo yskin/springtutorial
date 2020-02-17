@@ -14,6 +14,7 @@ public class CustomerRestController {
 
     private final CustomerService customerService;
 
+    @Autowired
     public CustomerRestController(CustomerService customerService) {
         this.customerService = customerService;
     }
@@ -33,7 +34,7 @@ public class CustomerRestController {
     }
 
     @PostMapping("/customers")
-    public Customer addCustomer(@RequestBody Customer customer)    {
+    public Customer addCustomer(@RequestBody Customer customer) {
         // means set new ID
         customer.setId(0);
         customerService.saveCustomer(customer);
@@ -44,6 +45,16 @@ public class CustomerRestController {
     public Customer updateCustomer(@RequestBody Customer customer) {
         customerService.saveCustomer(customer);
         return customer;
+    }
+
+    @DeleteMapping("/customers/{customerId}")
+    public String deleteCustomer(@PathVariable int customerId) {
+        Customer customer = customerService.getCustomer(customerId);
+        if (customer == null) {
+            throw new CustomerNotFoundException("Customer id not found - " + customerId);
+        }
+        customerService.deleteCustomer(customerId);
+        return "Deleted customer id: " + customerId;
     }
 
 }

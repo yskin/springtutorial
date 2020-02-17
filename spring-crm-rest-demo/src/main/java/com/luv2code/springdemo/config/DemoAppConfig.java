@@ -35,6 +35,7 @@ public class DemoAppConfig implements WebMvcConfigurer {
 
     private final Environment env;
 
+    @Autowired
     public DemoAppConfig(Environment env) {
         this.env = env;
     }

@@ -14,6 +14,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerDAO customerDao;
 
+    @Autowired
     public CustomerServiceImpl(CustomerDAO customerDao) {
         this.customerDao = customerDao;
     }
